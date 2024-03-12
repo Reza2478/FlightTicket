@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { iranSans } from '@/utils/fonts'
+import { yekan } from '@/utils/fonts'
 import './globals.css'
 import Layout from '@/layout/Layout'
 
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir='rtl'>
-      <body className={iranSans.className}>
+      <body className={yekan.className}>
         <Layout>
           {children}
         </Layout>
