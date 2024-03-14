@@ -1,29 +1,26 @@
+"use client"
+
 import React, { useState } from "react";
 import Search from "@/module/Search";
-import axios from "axios";
-import { FlightList } from "@/interfaces/ticketDetails";
+import LoadingGif from "@/public/images/loading.gif"
+import { TicketDetails } from "@/interfaces/ticketDetails";
 import Ticket from "@/module/Ticket";
+import Image from "next/image";
 
-async function getData() {
-  try {
-    const res = await axios.get<FlightList>(
-      "https://d83de549be044706ad0d19ade86cea55.api.mockbin.io/",
-    );
-    return res.data.flightQueryResult[0].flightList;
-  } catch (error) {
-    throw new Error("Failed to fetch data");
-  }
+interface Props {
+  initialData: TicketDetails[]
 }
 
-async function HomePage() {
-  const data = await getData();
-
-  // console.log("data=>",data);
+function HomePage({ initialData }: Props) {
+  const [filteredData, setFilteredData] = useState(initialData)
+  const [loading, setLoading] = useState(false)
 
   return (
     <div className="flex flex-col max-w-[1000px] my-8 mx-auto focus:border-none gap-2">
-      <Search />
-      {data.map((ticket) => (
+      <Search setLoading={setLoading} tickets={initialData} setFilteredTickets={setFilteredData} />
+      {loading ? <div className='flex items-center justify-center h-screen'>
+        <Image src={LoadingGif} alt='loading' />
+      </div> : !filteredData.length?<p>parvazi nist</p>: filteredData.slice(0, 5).map((ticket) => (
         <Ticket key={ticket.flightID} ticket={ticket} />
       ))}
     </div>

@@ -19,9 +19,8 @@ function Ticket({ ticket }: Props) {
 
   return (
     <div
-      className={`flex flex-col ${
-        isShowMore ? "bg-[#F3F3F3]" : "bg-white"
-      } transition-all ease-in-out duration-300  rounded-md shadow-md`}
+      className={`flex flex-col ${isShowMore ? "bg-[#F3F3F3]" : "bg-white"
+        } transition-all ease-in-out duration-300  rounded-md shadow-md`}
     >
       <div className="flex justify-between items-center  px-2 pt-1 pb-4">
         {/* right section */}
@@ -36,10 +35,10 @@ function Ticket({ ticket }: Props) {
               <span className="p-1 text-xs rounded-md">اکونومی</span>
             )}
             {ticket.flightClass === "BUSINESS" && (
-              <span className="p-1 text-xs rounded-md">بیزینس</span>
+              <span className="p-1 text-xs rounded-md bg-[#FFDA55] text-[#924600]">بیزینس</span>
             )}
             {ticket.flightClass === "SYSTEM" && (
-              <span className="p-1 text-xs rounded-md">سیستمی</span>
+              <span className="p-1 text-xs rounded-md bg[#F3F3F3]">سیستمی</span>
             )}
           </div>
           <div className="flex gap-16 items-center">
@@ -103,7 +102,7 @@ function Ticket({ ticket }: Props) {
       </div>
 
       {/* for details */}
-       <MoreDetails ticket={ticket} isShow={isShowMore}/>
+      <MoreDetails ticket={ticket} isShow={isShowMore} />
     </div>
   );
 }
