@@ -18,11 +18,17 @@ function HomePage({ initialData }: Props) {
   return (
     <div className="flex flex-col max-w-[1000px] my-8 mx-auto focus:border-none gap-2">
       <Search setLoading={setLoading} tickets={initialData} setFilteredTickets={setFilteredData} />
-      {loading ? <div className='flex items-center justify-center h-screen'>
-        <Image src={LoadingGif} alt='loading' />
-      </div> : !filteredData.length?<p>parvazi nist</p>: filteredData.slice(0, 5).map((ticket) => (
-        <Ticket key={ticket.flightID} ticket={ticket} />
-      ))}
+      {loading ?
+        <div className='flex items-center justify-center h-screen'>
+          <Image src={LoadingGif} alt='loading' />
+        </div> :
+        !filteredData.length ?
+          <p className="flex items-center justify-center h-screen text-xl text-red-500">
+            پروازی یافت نشد :(
+          </p> :
+          filteredData.slice(0, 5).map((ticket) => (
+            <Ticket key={ticket.flightID} ticket={ticket} />
+          ))}
     </div>
   );
 }

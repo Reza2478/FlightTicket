@@ -22,20 +22,20 @@ function Search({ tickets, setFilteredTickets, setLoading }: Props) {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            filter()
-            setLoading(false)
-        }, 1000);
+        filter()
+        setLoading(false)
     }, [searchValue])
 
     const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setLoading(true)
-        setSearchValue(e.target.value)
+        setTimeout(() => {
+            setSearchValue(e.target.value)
+        }, 2000);
     }
 
     return (
         <div className='bg-[#F3F3F3] border px-2 py-1 flex justify-between rounded-full items-center w-[260px]'>
-            <input value={searchValue} onChange={searchHandler} placeholder='جستجوی بلیط' className='bg-[#F3F3F3] text-xs focus:outline-none' />
+            <input onChange={searchHandler} placeholder='جستجوی بلیط' className='bg-[#F3F3F3] text-xs focus:outline-none' />
             <AiOutlineSearch onClick={filter} width={10} color="#555" className="cursor-pointer" />
         </div>
     )
