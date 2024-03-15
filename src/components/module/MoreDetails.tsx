@@ -2,11 +2,7 @@
 
 import React, { useState } from "react";
 import { TicketDetails } from "@/interfaces/ticketDetails";
-import { duratonTime } from "@/utils/calculateDurationtime";
-import Image from "next/image";
 import { e2p, sp } from "@/utils/replaceNumber";
-import { imageChosen } from "@/utils/imageChosen";
-import moment from "moment";
 import FlightDetails from "./FlightDetails";
 import RefundPolicy from "./RefundPolicy";
 
