@@ -36,7 +36,7 @@ function MoreDetails({ ticket, isShow }: Props) {
           <button
             onClick={() => changeHandler("details")}
             className={`text-sm sm:text-base ${tabValue === "details" &&
-              "text-[#065BAA] border-b-2 border-b-[#065BAA]"
+              "text-secondary border-b-2 border-b-secondary"
               } `}
           >
             جزئیات پرواز
@@ -44,7 +44,7 @@ function MoreDetails({ ticket, isShow }: Props) {
           <button
             onClick={() => changeHandler("rules")}
             className={`text-sm sm:text-base ${tabValue === "rules" &&
-              "text-[#065BAA] border-b-2 border-b-[#065BAA]"
+              "text-secondary border-b-2 border-b-secondary"
               } `}
           >
             قوانین استرداد
@@ -57,19 +57,19 @@ function MoreDetails({ ticket, isShow }: Props) {
         <div className="border-b pb-[1.5px]">
           <p className="text-sm sm:text-base">جزئیات قیمت</p>
         </div>
-        <div className="flex flex-col rounded-xl bg-[#F3F3F3] mt-3 py-4 gap-4 px-3">
+        <div className="flex flex-col rounded-xl bg-background mt-3 py-4 gap-4 px-3">
           <div className="flex justify-between items-center">
             <p className="text-gray-500 text-sm">بزرگسال (12 سال به بالا)</p>
-            <p className="text-sm text-[#065BAA]">{e2p(1)} * {sp(ticket.price)} ریال</p>
+            <p className="text-sm text-secondary">{e2p(1)} * {sp(ticket.price)} ریال</p>
           </div>
           <hr />
 
           <div className="flex justify-between items-center">
             <p className=" text-sm">مجموع قیمت</p>
-            <p className="text-lg sm:text-xl text-[#065BAA]">{sp(ticket.price)} <span className="text-[#065BAA] text-sm">ریال</span></p>
+            <p className="text-lg sm:text-xl text-secondary">{sp(ticket.price)} <span className="text-secondary text-sm">ریال</span></p>
           </div>
 
-          <button className="bg-[#065BAA] text-sm sm:text-base text-white rounded-full py-2 sm:py-3 mx-6 cursor-pointer hover:bg-[#063aaa] transition-all ease-out">انتخاب بلیط و افزودن سفر</button>
+          <button className="bg-secondary text-sm sm:text-base text-white rounded-full py-2 sm:py-3 mx-6 cursor-pointer hover:bg-[#063aaa] transition-all ease-out">انتخاب بلیط و افزودن سفر</button>
         </div>
       </div>
     </div >

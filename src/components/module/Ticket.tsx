@@ -19,7 +19,7 @@ function Ticket({ ticket }: Props) {
 
   return (
     <div
-      className={`flex flex-col ${isShowMore ? "bg-[#F3F3F3]" : "bg-white"
+      className={`flex flex-col ${isShowMore ? "bg-primary-50" : "bg-white"
         } transition-all ease-in-out duration-300  rounded-md shadow-md`}
     >
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 sm:gap-10 px-4 pt-1 sm:pb-4">
@@ -92,7 +92,7 @@ function Ticket({ ticket }: Props) {
           )}
           <div
             onClick={() => setIsShowMore(!isShowMore)}
-            className="flex sm:hidden text-[#065BAA] text-xs p-2 justify-between items-center gap-2 cursor-pointer"
+            className="flex sm:hidden text-secondary text-xs p-2 justify-between items-center gap-2 cursor-pointer"
           >
             <p>جزئیات</p>
             <HiChevronDown className={`transition-all ease-in-out ${isShowMore ? "rotate-180" : ""}`} />
@@ -103,7 +103,7 @@ function Ticket({ ticket }: Props) {
           </div>
           <div
             onClick={() => setIsShowMore(!isShowMore)}
-            className="hidden sm:flex text-[#065BAA] text-sm p-2 justify-between items-center  md:gap-6 border-2 rounded-full border-[#065BAA] cursor-pointer"
+            className="hidden sm:flex text-secondary text-sm p-2 justify-between items-center  md:gap-6 border-2 rounded-full border-secondary cursor-pointer"
           >
             <p>مشاهده جزئیات</p>
             <HiChevronDown className={`transition-all ease-in-out ${isShowMore ? "rotate-180" : ""}`} />

@@ -34,8 +34,8 @@ function Search({ tickets, setFilteredTickets, setLoading }: Props) {
     }
 
     return (
-        <div className='bg-[#F3F3F3] border border-gray-400 px-2 py-2 flex justify-between rounded-full items-center sm:w-[260px]'>
-            <input onChange={searchHandler} placeholder='جستجوی بلیط' className='bg-[#F3F3F3] text-xs focus:outline-none' />
+        <div className='bg-background border border-gray-400 px-2 py-2 flex justify-between rounded-full items-center sm:w-[260px]'>
+            <input onChange={searchHandler} placeholder='جستجوی بلیط' className='bg-background text-xs focus:outline-none' />
             <AiOutlineSearch onClick={filter} width={10} color="#555" className="cursor-pointer" />
         </div>
     )

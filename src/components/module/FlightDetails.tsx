@@ -15,9 +15,9 @@ interface Props {
 
 function FlightDetails({ ticket }: Props) {
   return (
-    < div className="flex flex-col rounded-xl bg-[#F3F3F3] mt-3" >
+    < div className="flex flex-col rounded-xl bg-background mt-3" >
       <div className="bg-primary-100 rounded-xl flex justify-between items-center px-2 py-2">
-        <p className="text-[#065BAA] text-xs sm:text-base">
+        <p className="text-secondary text-xs sm:text-base">
           {ticket.departure.airport.city.name.farsi} -{" "}
           {ticket.arrival.airport.city.name.farsi}
         </p>
@@ -73,10 +73,10 @@ function FlightDetails({ ticket }: Props) {
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <p className="sm:text-xl text-[#065BAA]">
+                <p className="sm:text-xl text-secondary">
                   {e2p(ticket.departure.dateHourString)}
                 </p>
-                <p className="sm:text-xl text-[#065BAA]">
+                <p className="sm:text-xl text-secondary">
                   {ticket.departure.airport.city.name.farsi}
                 </p>
                 <p className="text-xs sm:text-sm">
@@ -97,10 +97,10 @@ function FlightDetails({ ticket }: Props) {
 
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <p className="sm:text-xl text-[#065BAA]">
+                <p className="sm:text-xl text-secondary">
                   {e2p(ticket.arrival.dateHourString)}
                 </p>
-                <p className="sm:text-xl text-[#065BAA]">
+                <p className="sm:text-xl text-secondary">
                   {ticket.arrival.airport.city.name.farsi}
                 </p>
                 <p className="text-xs sm:text-sm">
