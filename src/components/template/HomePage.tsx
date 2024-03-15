@@ -16,7 +16,7 @@ function HomePage({ initialData }: Props) {
   const [loading, setLoading] = useState(false)
 
   return (
-    <div className="flex flex-col max-w-[1000px] my-8 mx-auto focus:border-none gap-2">
+    <div className="flex flex-col max-w-[1000px] mx-auto w-full md:w-auto md:px-10 px-5 my-8 focus:border-none gap-2">
       <Search setLoading={setLoading} tickets={initialData} setFilteredTickets={setFilteredData} />
       {loading ?
         <div className='flex items-center justify-center h-screen'>

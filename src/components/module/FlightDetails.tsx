@@ -1,14 +1,13 @@
 import React from 'react'
 import moment from 'moment'
 import Image from 'next/image'
-import Luggage from "@/public/images/icons/luggage.png";
-import ChildCare from "@/public/images/icons/child_care.png";
-import Vector from "@/public/images/icons/Vector.png";
 import { TicketDetails } from '@/interfaces/ticketDetails'
 import { duratonTime } from '@/utils/calculateDurationtime'
 import { imageChosen } from '@/utils/imageChosen'
 import { e2p } from '@/utils/replaceNumber'
-
+import { BiCabinet } from "react-icons/bi";
+import { MdOutlineChildCare } from "react-icons/md";
+import { MdLuggage } from "react-icons/md";
 
 interface Props {
   ticket: TicketDetails
@@ -17,14 +16,14 @@ interface Props {
 function FlightDetails({ ticket }: Props) {
   return (
     < div className="flex flex-col rounded-xl bg-[#F3F3F3] mt-3" >
-      <div className="bg-primary-100 rounded-xl flex justify-between items-center px-2 py-1">
-        <p className="text-[#065BAA]">
+      <div className="bg-primary-100 rounded-xl flex justify-between items-center px-2 py-2">
+        <p className="text-[#065BAA] text-xs sm:text-base">
           {ticket.departure.airport.city.name.farsi} -{" "}
           {ticket.arrival.airport.city.name.farsi}
         </p>
         <div className="flex justify-center items-center gap-1">
           <p className="text-xs">مدت سفر :</p>
-          <p className="text-sm">
+          <p className="text-xs">
             {duratonTime(ticket.departure.date, ticket.arrival.date)}
           </p>
         </div>
@@ -41,24 +40,24 @@ function FlightDetails({ ticket }: Props) {
           </span>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2">
-              <p>{ticket.airline.name}</p>
-              <p>{ticket.flightClass}</p>
-              <p>{ticket.airplaneModel}</p>
+              <p className='text-sm sm:text-base'>{ticket.airline.name}</p>
+              <p className='text-sm sm:text-base'>{ticket.flightClass}</p>
+              <p className='text-sm sm:text-base'>{ticket.airplaneModel}</p>
             </div>
             <div className="flex gap-2">
-              <span className="text-gray-500 flex gap-1 font-thin">
+              <span className="text-gray-500 text-xs sm:text-base flex gap-1 font-thin">
                 شماره پرواز :{" "}
                 <p className="text-black font-normal">
                   {e2p(ticket.flightNumber)}
                 </p>
               </span>
-              <span className="text-gray-500 flex gap-1 font-thin">
+              <span className="text-gray-500 text-xs sm:text-base flex gap-1 font-thin">
                 کلاس نرخی :{" "}
                 <p className="text-black font-normal">
                   {e2p(ticket.fareClass)}
                 </p>
               </span>
-              <span className="text-gray-500 flex gap-1 font-thin">
+              <span className="text-gray-500 text-xs sm:text-base flex gap-1 font-thin">
                 ترمنیال : <p className="text-black font-normal">-</p>
               </span>
             </div>
@@ -74,20 +73,19 @@ function FlightDetails({ ticket }: Props) {
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                {/* <div className="w-3 h-3 bg-gray-700 inline rounded-full" /> */}
-                <p className="text-xl text-[#065BAA]">
+                <p className="sm:text-xl text-[#065BAA]">
                   {e2p(ticket.departure.dateHourString)}
                 </p>
-                <p className="text-xl text-[#065BAA]">
+                <p className="sm:text-xl text-[#065BAA]">
                   {ticket.departure.airport.city.name.farsi}
                 </p>
-                <p className="text-sm">
+                <p className="text-xs sm:text-sm">
                   {ticket.departure.dateString} -{" "}
                   {moment.unix(ticket.departure.date).format("DD MMMM")}
                 </p>
               </div>
 
-              <p className="text-sm ">
+              <p className="sm:text-sm text-xs">
                 {ticket.departure.airport.name.farsi} (
                 {ticket.departure.airport.iata})
               </p>
@@ -99,20 +97,19 @@ function FlightDetails({ ticket }: Props) {
 
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                {/* <div className="w-3 h-3 bg-gray-700 inline rounded-full" /> */}
-                <p className="text-xl text-[#065BAA]">
+                <p className="sm:text-xl text-[#065BAA]">
                   {e2p(ticket.arrival.dateHourString)}
                 </p>
-                <p className="text-xl text-[#065BAA]">
+                <p className="sm:text-xl text-[#065BAA]">
                   {ticket.arrival.airport.city.name.farsi}
                 </p>
-                <p className="text-sm">
+                <p className="text-xs sm:text-sm">
                   {ticket.arrival.dateString} -{" "}
                   {moment.unix(ticket.arrival.date).format("DD MMMM")}
                 </p>
               </div>
 
-              <p className="text-sm ">
+              <p className="sm:text-sm text-xs">
                 {ticket.arrival.airport.name.farsi} (
                 {ticket.arrival.airport.iata})
               </p>
@@ -120,22 +117,22 @@ function FlightDetails({ ticket }: Props) {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <div className="flex gap-1 items-center">
-            <Image alt="bar" src={Luggage} />
-            <p className="text-sm text-red-500">
-              بار مجاز پرواز : 20 کیلوگرم به ازای هر مسافر
+          <div className="flex gap-1 items-center text-red-500">
+            <MdLuggage />
+            <p className="text-xs sm:text-sm ">
+              بار مجاز پرواز : {e2p(ticket.allowedBaggage[0].adultAndChildWeight)} کیلوگرم به ازای هر مسافر
             </p>
           </div>
-          <div className="flex gap-1 items-center">
-            <Image alt="bar" src={ChildCare} />
-            <p className="text-sm text-red-500">
-              بار مجاز نوزاد : 10 کیلوگرم به ازای هر مسافر
+          <div className="flex gap-1 items-center text-red-500">
+            <MdOutlineChildCare />
+            <p className="text-xs sm:text-sm ">
+              بار مجاز نوزاد : {e2p(ticket.allowedBaggage[0].infantWeight)} کیلوگرم به ازای هر نوزاد
             </p>
           </div>
-          <div className="flex gap-1 items-center">
-            <Image alt="bar" src={Vector} />
-            <p className="text-sm text-red-500">
-              بار مجاز کابین : 20 کیلوگرم به ازای هر مسافر
+          <div className="flex gap-1 items-center text-red-500">
+            <BiCabinet />
+            <p className="text-xs sm:text-sm ">
+              بار مجاز کابین : {e2p(ticket.allowedBaggage[0].weight)} کیلوگرم به ازای هر مسافر
             </p>
           </div>
         </div>
