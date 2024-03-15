@@ -1,10 +1,10 @@
-const e2p = (s: number | string) =>
-  s.toString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+const e2p = (s: number | string): string =>
+  s.toString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[parseInt(d, 10)]);
 
-const p2e = (s: number | string) =>
-  s.toString().replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+const p2e = (s: number | string): string =>
+  s.toString().replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d).toString());
 
-const sp = (number: number) => {
+const sp = (number: number): string => {
   const seperatedNumber = number
     .toString()
     .match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
